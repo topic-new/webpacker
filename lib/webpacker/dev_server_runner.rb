@@ -66,7 +66,7 @@ module Webpacker
         env["WEBPACKER_CONFIG"] = @webpacker_config
 
         cmd = if node_modules_bin_exist?
-          ["#{@node_modules_bin_path}/webpack-dev-server"]
+          ["#{@node_modules_bin_path}/webpack"]
         else
           ["yarn", "webpack-dev-server"]
         end
@@ -75,6 +75,7 @@ module Webpacker
           cmd = [ "node", "--inspect-brk"] + cmd
         end
 
+        cmd += ["serve"]
         cmd += ["--config", @webpack_config]
         cmd += ["--progress", "--color"] if @pretty
         cmd += @argv
