@@ -68,7 +68,7 @@ module Webpacker
         cmd = if node_modules_bin_exist?
           ["#{@node_modules_bin_path}/webpack"]
         else
-          ["yarn", "webpack-dev-server"]
+          ["yarn", "webpack"]
         end
 
         if @argv.include?("--debug-webpacker")
@@ -86,7 +86,7 @@ module Webpacker
       end
 
       def node_modules_bin_exist?
-        File.exist?("#{@node_modules_bin_path}/webpack-dev-server")
+        File.exist?("#{@node_modules_bin_path}/webpack")
       end
   end
 end
